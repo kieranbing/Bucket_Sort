@@ -1,7 +1,7 @@
 package learn;
-/**
- * @author Kieran Bingham
- */
+
+
+import java.util.Scanner;
 public class TempConverterGUI extends javax.swing.JFrame {
 
     /**
@@ -55,13 +55,12 @@ public class TempConverterGUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(CelciusField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CelciusLable)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(CelciusLable))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(ConvertButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(FahrenheitLable)))
-                .addContainerGap())
+                .addContainerGap(144, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {CelciusField, ConvertButton});
@@ -77,7 +76,7 @@ public class TempConverterGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConvertButton)
                     .addComponent(FahrenheitLable))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
@@ -88,7 +87,9 @@ public class TempConverterGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_CelciusFieldActionPerformed
 
     private void ConvertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConvertButtonActionPerformed
-        // TODO add your handling code here:
+        Scanner user_input = new Scanner( System.in );
+        double tempFahr = ((user_input.nextDouble()) * 1.8 + 32);
+        FahrenheitLable.setText(tempFahr + " Fahrenheit");
     }//GEN-LAST:event_ConvertButtonActionPerformed
 
     /**
