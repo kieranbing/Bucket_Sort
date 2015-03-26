@@ -52,7 +52,7 @@ public class Sorting_assignment {
     }
     
     public static void main(String[] args) {
-       System.out.println("Sorting of randomly generated numbers using BUCKET SORT");
+       System.out.println("Sorting the alphabet using BUCKET SORT:");
         Random random = new Random(); 
         int N = 26; //Set # of items in sequence 
         int[] sequence = new int[N]; //Makes an array filled with N number of int
@@ -63,7 +63,7 @@ public class Sorting_assignment {
 
         int maxValue = maxValue(sequence); //Calls the maxValue function, whitch loops through the array and finds the maximum value 
         
-        System.out.println("\nOriginal Sequence: ");
+        System.out.println("Original Sequence: ");
         printSequence(sequence);
         
         System.out.println("\nSorted Sequence: ");
