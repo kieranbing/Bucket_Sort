@@ -51,6 +51,30 @@ public class Sorting_assignment {
         }
     }
     
+    static int[] countingSort(int[] numbers) {
+    int max = numbers[0];
+    for (int i = 1; i < numbers.length; i++) {
+        if (numbers[i] > max)
+            max = numbers[i];
+    }
+
+    int[] sortedNumbers = new int[max+1];
+
+    for (int i = 0; i < numbers.length; i++) {
+        sortedNumbers[numbers[i]]++;
+    }
+
+    int insertPosition = 0;
+
+    for (int i = 0; i <= max; i++) {
+            for (int j = 0; j < sortedNumbers[i]; j++) {
+                    numbers[insertPosition] = i;
+                    insertPosition++;
+            }
+    }
+    return numbers;
+}
+    
     public static void main(String[] args) {
        System.out.println("Sorting the alphabet using BUCKET SORT:");
         Random random = new Random(); 
@@ -66,8 +90,11 @@ public class Sorting_assignment {
         System.out.println("Original Sequence: ");
         printSequence(sequence);
         
-        System.out.println("\nSorted Sequence: ");
+        System.out.println("\nSorted Sequence (bucket): ");
         printSequence(sort(sequence, maxValue));
+        
+        System.out.println("\ncounting sort: ");
+        printSequence(countingSort(sequence));
 
         System.out.print("\n");
     }
