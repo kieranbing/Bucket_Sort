@@ -87,8 +87,8 @@ public class TempConverterGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_CelciusFieldActionPerformed
 
     private void ConvertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConvertButtonActionPerformed
-        Scanner user_input = new Scanner( System.in );
-        double tempFahr = ((user_input.nextDouble()) * 1.8 + 32);
+        int tempFahr = (int)((Double.parseDouble(CelciusField.getText()))
+            * 1.8 + 32);
         FahrenheitLable.setText(tempFahr + " Fahrenheit");
     }//GEN-LAST:event_ConvertButtonActionPerformed
 
