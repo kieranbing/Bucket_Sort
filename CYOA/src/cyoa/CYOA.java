@@ -106,7 +106,7 @@ public class CYOA {
         decisions[6].setQuestion("At the end of the tunnel you find a ladder leading up."
                 + "\nAfter a long climb up the ladder you reach a metal hatch at the top. You open it and climb out."
                 + "\nYou find yourself in the middle of times square. WTF. Oh well, at least you are safe now. "
-                + "\n \n \n \n \n \n \nUntill soemone dressed as Elmo approches you and stabs you in the heart."
+                + "\n \n \n \n \n \n \nUntil soemone dressed as Elmo approches you and stabs you in the heart."
                 + "\n'HAIL HYDRA' he whispers in your ear. You dead.");
         decisions[6].setOptions(null);
         
