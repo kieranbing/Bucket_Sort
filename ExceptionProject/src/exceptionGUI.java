@@ -29,7 +29,7 @@ public class exceptionGUI extends javax.swing.JFrame {
         javax.swing.JLabel line = new javax.swing.JLabel();
         input1 = new javax.swing.JTextField();
         input2 = new javax.swing.JTextField();
-        answerLabel = new javax.swing.JLabel();
+        answerText = new javax.swing.JLabel();
         checkButton1 = new javax.swing.JButton();
         errorText1 = new javax.swing.JLabel();
         checkButton2 = new javax.swing.JButton();
@@ -41,7 +41,11 @@ public class exceptionGUI extends javax.swing.JFrame {
 
         line.setText("---------------");
 
-        answerLabel.setText("=");
+        input1.setRequestFocusEnabled(false);
+
+        input2.setMaximumSize(new java.awt.Dimension(6, 20));
+
+        answerText.setText("=");
 
         checkButton1.setText("Check");
         checkButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -62,6 +66,11 @@ public class exceptionGUI extends javax.swing.JFrame {
         errorText2.setForeground(new java.awt.Color(255, 0, 0));
 
         calculateButton.setText("CALCULATE!");
+        calculateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calculateButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setText("Cancel");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
@@ -80,9 +89,9 @@ public class exceptionGUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(line, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(answerLabel)
+                            .addComponent(answerText)
                             .addComponent(input1)
-                            .addComponent(input2))
+                            .addComponent(input2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -116,7 +125,7 @@ public class exceptionGUI extends javax.swing.JFrame {
                     .addComponent(checkButton2)
                     .addComponent(errorText2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(answerLabel)
+                .addComponent(answerText)
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelButton)
@@ -150,6 +159,11 @@ public class exceptionGUI extends javax.swing.JFrame {
             input2.setText("");
         }
     }//GEN-LAST:event_checkButton2ActionPerformed
+
+    private void calculateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateButtonActionPerformed
+        double answer = (Double.parseDouble(input1.getText()) / Double.parseDouble(input2.getText()));
+        answerText.setText(answer + ""); 
+    }//GEN-LAST:event_calculateButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,7 +201,7 @@ public class exceptionGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel answerLabel;
+    private javax.swing.JLabel answerText;
     private javax.swing.JButton calculateButton;
     private javax.swing.JButton cancelButton;
     private javax.swing.JButton checkButton1;
