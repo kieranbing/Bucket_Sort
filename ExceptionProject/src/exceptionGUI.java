@@ -162,7 +162,12 @@ public class exceptionGUI extends javax.swing.JFrame {
 
     private void calculateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateButtonActionPerformed
         double answer = (Double.parseDouble(input1.getText()) / Double.parseDouble(input2.getText()));
-        answerText.setText(answer + ""); 
+        
+        if (answer == Double.POSITIVE_INFINITY){
+            answerText.setText("You cannot divide by zero"); 
+        } else {
+            answerText.setText(answer + ""); 
+        }
     }//GEN-LAST:event_calculateButtonActionPerformed
 
     /**
