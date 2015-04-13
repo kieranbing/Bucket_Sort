@@ -46,12 +46,14 @@ public class fileGUI extends javax.swing.JFrame {
         createButton = new javax.swing.JButton();
         createProgress = new javax.swing.JProgressBar();
         authorNote = new javax.swing.JLabel();
+        saveLabel = new javax.swing.JLabel();
+        saveProgress = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("File interaction assignment - Kieran Bingham");
         setResizable(false);
 
-        actionButton.setText("DO THE THING");
+        actionButton.setText("Save initals file");
         actionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 actionButtonActionPerformed(evt);
@@ -77,6 +79,8 @@ public class fileGUI extends javax.swing.JFrame {
         initalsArea.setMinimumSize(new java.awt.Dimension(150, 22));
         jScrollPane1.setViewportView(initalsArea);
 
+        loadProgress.setStringPainted(true);
+
         initalsTitle.setText("<html>\n<b>Initals</b>");
 
         fullNamesArea.setEditable(false);
@@ -101,20 +105,24 @@ public class fileGUI extends javax.swing.JFrame {
             }
         });
 
+        createProgress.setStringPainted(true);
+
         authorNote.setForeground(new java.awt.Color(102, 102, 102));
         authorNote.setText("Created by Kieran Bingham");
+
+        saveLabel.setForeground(new java.awt.Color(255, 0, 0));
+
+        saveProgress.setToolTipText("");
+        saveProgress.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        saveProgress.setStringPainted(true);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(actionButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(closeButton))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -122,9 +130,16 @@ public class fileGUI extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(loadProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(fullNamesTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(actionButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(saveProgress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(closeButton))
                             .addComponent(jScrollPane1)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,11 +148,12 @@ public class fileGUI extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(createProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(initalsTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(authorNote))
+                                .addGap(0, 21, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(saveLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(authorNote))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,21 +169,19 @@ public class fileGUI extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(loadButton)
-                            .addComponent(loadProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(createProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(createButton))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(closeButton)
-                            .addComponent(actionButton))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(authorNote))))
+                    .addComponent(createProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(createButton)
+                    .addComponent(loadButton)
+                    .addComponent(loadProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(closeButton)
+                    .addComponent(actionButton)
+                    .addComponent(saveProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(authorNote)
+                    .addComponent(saveLabel)))
         );
 
         pack();
@@ -179,9 +193,9 @@ public class fileGUI extends javax.swing.JFrame {
 
     private void actionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionButtonActionPerformed
         try {
-            load();
+            save();
         } catch (IOException e) {
-            System.out.println("Stap - " + e);
+            System.out.println("Save error - " + e);
         }
     }//GEN-LAST:event_actionButtonActionPerformed
 
@@ -197,13 +211,14 @@ public class fileGUI extends javax.swing.JFrame {
         try {
             create();
         } catch (IOException e) {
-            System.out.println("Load error - " + e);
+            System.out.println("Create error - " + e);
         }
     }//GEN-LAST:event_createButtonActionPerformed
    
     void load() throws IOException {
         String fileSeparator = System.getProperty("file.separator");
         String relativePath = "generatedFiles" + fileSeparator + "fullNames.txt";
+        updateBar("load", 25); 
 
         File fullNames = new File(relativePath);
         //fullNames.deleteOnExit();
@@ -212,6 +227,7 @@ public class fileGUI extends javax.swing.JFrame {
         } else {
             System.out.println("File " + relativePath + " already exists in project generated files folder");
         }
+        updateBar("load", 50); 
         
         String fileString = readFile(fullNames); 
         fileString = fileString.replaceAll("[ \\t]+", " ");
@@ -219,7 +235,16 @@ public class fileGUI extends javax.swing.JFrame {
         try (PrintWriter writer = new PrintWriter(fullNames, "UTF-8")) {
             writer.print(readString(fileString));
         } 
-        fullNamesArea.setText(readFile(fullNames));
+        updateBar("load", 75); 
+        
+        if (isValid(fullNames)){
+//            fullNamesArea.setText(readFile(fullNames));
+            fullNamesArea.setText(readFile(fullNames)); 
+        } else {
+            fullNamesArea.setText("Validation error: Make sure you only use letters, and enter between 2-3 names, "
+                    + "with the last name full, not just inital."); 
+        }
+        updateBar("load", 100);   
     }
     
     void create() throws IOException {
@@ -227,6 +252,7 @@ public class fileGUI extends javax.swing.JFrame {
         
         String relativePath = "generatedFiles" + fileSeparator + "fullNames.txt";
         File fullNames = new File(relativePath);
+        updateBar("create", 25); 
         
         relativePath = "generatedFiles" + fileSeparator + "initalsTemp.txt";
         File initalsTemp = new File(relativePath);
@@ -236,6 +262,7 @@ public class fileGUI extends javax.swing.JFrame {
         } else {
             System.out.println("File " + relativePath + " already exists in project generated files folder");
         }
+        updateBar("create", 50); 
         
         String fileString = readFile(fullNames); 
         fileString = fileString.replaceAll("[ \\t]+", " ");
@@ -243,10 +270,47 @@ public class fileGUI extends javax.swing.JFrame {
         try (PrintWriter writer = new PrintWriter(fullNames, "UTF-8")) {
             writer.print(readString(fileString));
         } 
+        updateBar("create", 75); 
+        
         try (PrintWriter writerInitals = new PrintWriter(initalsTemp, "UTF-8")) {
-            writerInitals.print(readFile(fullNames));
+            writerInitals.print(formatInitals(fullNames));
         } 
         initalsArea.setText(readFile(initalsTemp)); 
+        updateBar("create", 100); 
+    }
+    
+    void save() throws IOException{
+        String fileSeparator = System.getProperty("file.separator");
+        
+        String relativePath = "generatedFiles" + fileSeparator + "initalsTemp.txt";
+        File initalsTemp = new File(relativePath);
+        if (initalsTemp.exists()) {
+            updateBar("save", 25); 
+            String relativePathNew = "generatedFiles" + fileSeparator + "initals.txt";
+            File initals = new File(relativePathNew);
+            if (initals.createNewFile()) {
+                updateBar("save", 50); 
+                try (PrintWriter writer = new PrintWriter(initals, "UTF-8")) {
+                    writer.print(readFile(initalsTemp));
+                }
+                updateBar("save", 75); 
+                System.out.println(relativePathNew + " - File saved!");
+                saveLabel.setText("File saved at - " + relativePathNew);
+                updateBar("save", 100); 
+            } else {
+                updateBar("save", 50); 
+                try (PrintWriter writer = new PrintWriter(initals, "UTF-8")) {
+                    writer.print(readFile(initalsTemp));
+                }
+                updateBar("save", 75); 
+                System.out.println(relativePathNew + " - File saved over old file!");
+                saveLabel.setText("Overwrote file at - " + relativePathNew);
+                updateBar("save", 100); 
+            }
+        } else {
+            System.out.println("Nothing to save at - " + relativePath);
+            saveLabel.setText("Nothing to save at - " + relativePath);
+        } 
     }
     
     private String readFile(File file) throws IOException {
@@ -270,16 +334,97 @@ public class fileGUI extends javax.swing.JFrame {
         StringBuilder fileContents = new StringBuilder((int) file.length());
         Scanner scanner = new Scanner(file);
         String lineSeparator = System.getProperty("line.separator");
+        String line;
 
         try {
             while (scanner.hasNextLine()) {
-                fileContents.append(scanner.nextLine() + lineSeparator);
+                line = scanner.nextLine();
+                String split[] = line.split("\\s");
+                line = "";
+                for (String word : split) {
+                    line = (line + word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase() + " ");
+                }
+                fileContents.append(line + lineSeparator);
             }
             return fileContents.toString();
         } finally {
             scanner.close();
         }
     }
+    
+    private String formatInitals(File file) throws IOException {
+        //File file = new File(pathname);
+        StringBuilder fileContents = new StringBuilder((int) file.length());
+        Scanner scanner = new Scanner(file);
+        String lineSeparator = System.getProperty("line.separator");
+        String line; 
+
+        try {
+            while (scanner.hasNextLine()) {
+                line = scanner.nextLine(); 
+                String split[] = line.split("\\s");
+                line = "";
+                for (int i=0;i<split.length;i++){
+                    line = (line + split[i].substring(0,1).toUpperCase() + ".");
+                }
+                fileContents.append(line + lineSeparator);
+            }
+            return fileContents.toString();
+        } finally {
+            scanner.close();
+        }
+    }
+    
+    public boolean isValid(File file) throws IOException{
+//        return name.matches("[a-zA-Z]+|\\s+");
+        Scanner scanner = new Scanner(file);
+        boolean valid = true; 
+
+        try {
+            while (scanner.hasNextLine()) { 
+                String split[] = scanner.nextLine().split("\\s");
+                for (int i=0;i<split.length;i++){
+                    if (!split[i].trim().matches("[a-zA-Z]+")){
+                        System.out.println(split[i].trim().matches("[a-zA-Z]+"));
+                        valid = false; 
+                        return valid;
+                    }
+                    if (split.length > 3 || split.length < 2){
+                        valid = false; 
+                        return valid;
+                    }
+                    if (!split[split.length - 1].trim().substring(1).matches("[a-zA-Z]+")){
+                        valid = false; 
+                        return valid;
+                    }
+                }
+            }
+        } finally {
+            scanner.close();
+        }
+        return valid;
+    }
+    
+    public void updateBar(String bar, int newValue) {
+        switch (bar){
+        case "load" :
+            loadProgress.setValue(newValue);
+            saveProgress.setValue(0);
+            createProgress.setValue(0);
+            break;
+        case "create" :
+            createProgress.setValue(newValue);
+            saveProgress.setValue(0);
+            loadProgress.setValue(0);
+            break;
+        case "save" : 
+            saveProgress.setValue(newValue);
+            createProgress.setValue(0);
+            loadProgress.setValue(0);
+            break; 
+        }      
+    }
+
     
     /**
      * @param args the command line arguments
@@ -335,5 +480,7 @@ public class fileGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton loadButton;
     private javax.swing.JProgressBar loadProgress;
+    private javax.swing.JLabel saveLabel;
+    private javax.swing.JProgressBar saveProgress;
     // End of variables declaration//GEN-END:variables
 }
